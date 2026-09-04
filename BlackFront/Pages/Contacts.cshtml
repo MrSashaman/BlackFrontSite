@@ -1,0 +1,42 @@
+@page
+@model ContactsModel
+@{
+    ViewData["Title"] = "Контакты - Черный фронт";
+}
+
+@section CustomNav {
+    <nav class="main-nav">
+        <ul>
+            <li><a asp-page="/Index" asp-fragment="about" class="nav-link">Главная</a></li>
+            <li><a asp-page="/FreeLibrary" asp-asp-fragment="library" class="nav-link">Библиотека</a></li>
+            <li><a asp-page="/creation" asp-fragment="about" class="nav-link">Творчество</a></li>
+        </ul>
+    </nav>
+}
+
+<main>
+    <section id="library">
+        <h1>Связь с нами</h1>
+        <hr />
+            <p>Выберите удобный способ для связи:</p>
+        
+        <div class="social-icons">
+            <a href="https://t.me" target="_blank" class="icon-box telegram" title="Telegram"> @*Пример, нужно заменить на своё :) ! *@
+                <span class="emoji">🔭</span>    
+            </a>
+
+            <a href="https://www.youtube.com/" target="_blank" class="icon-box youtube" title="YouTube"> @*Пример, нужно заменить на своё :) ! *@
+                <span class="emoji">📺</span>    
+            </a>
+
+            <a href="https://discord.gg/5jBHv8pWMt" target="_blank" class="icon-box discord" title="Discord"> @*Пример, нужно заменить на своё :) ! *@
+                 <span class="emoji">🏴</span>    
+
+            </a>
+
+            <a href="mailto:info@yourdomain.com" class="icon-box email" title="Написать на почту"> @*Пример, нужно заменить на своё :) ! *@
+                <span class="emoji">✉️</span>    
+            </a>
+        </div>
+    </section>
+</main>

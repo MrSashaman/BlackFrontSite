@@ -1,0 +1,34 @@
+﻿@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Ошибка";
+    var statusCode = Request.Query["statusCode"].ToString();
+}
+
+<div class="error-container">
+    @if (statusCode == "404")
+    {
+        <div class="error-emoji">🔍 Упс... 404</div>
+        <h1>Страница не найдена</h1>
+        <p>Похоже, адрес написан с ошибкой или такой страницы больше не существует.</p>
+    }
+    else
+    {
+        <div class="error-emoji">💥 Ой!</div>
+        <h1>Что-то пошло не так</h1>
+        <p>Произошла непредвиденная ошибка на сервере. Мы уже чиним её!</p>
+    }
+
+    <div class="error-actions">
+        <a href="/" class="btn-home">Вернуться на главную</a>
+    </div>
+
+    <div class="contact-container" style="margin-top: 50px; background-color: #ffffff;">
+        <h3>Возникли вопросы? Напишите нам:</h3>
+        <div class="social-icons">
+            <a href="https://t.me" target="_blank" class="icon-box telegram" title="Telegram"><span class="emoji">✈️</span></a>
+            <a href="https://discord.gg/5jBHv8pWMt" target="_blank" class="icon-box discord" title="Discord"><span class="emoji">💬</span></a>
+            <a href="mailto:info@yourdomain.com" class="icon-box email" title="Почта"><span class="emoji">✉️</span></a>
+        </div>
+    </div>
+</div>

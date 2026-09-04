@@ -221,3 +221,138 @@ section:last-child {
     display: none;
   }
 }
+
+
+.contact-container {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+    margin-top: 15px;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    color: white;
+}
+
+.telegram { background-color: #0088cc; }
+.youtube { background-color: #d32525; }
+.discord { background-color: #4e8cff; }
+.email { background-color: #300326; }
+
+
+
+.contact-container {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon-box svg {
+    width: 26px;
+    height: 26px;
+    fill: white;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+
+.error-container {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.error-emoji {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.error-container h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.error-container p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.error-container code {
+    background-color: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #d63384;
+}
+
+.btn-home {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0,123,255,0.2);
+}
+
+.btn-home:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    color: white;
+}

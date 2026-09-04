@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Черный фронт</title> 
+    <link rel="stylesheet" href="~/css/style.css">
+    <script src="~/js/cursoreffects.js" defer></script>
+</head>
+<body>
+
+    <aside class="sidebar-nav">
+        <div class="sidebar-title">Навигация</div>
+            <ul>
+                <li><a asp-page="/Index"><span>01.</span> Главная</a></li>
+                <li><a asp-page="/FreeLibrary"><span>02.</span> Библиотека</a></li>
+                <li><a asp-page="/Creation"><span>03.</span> Творчество</a></li>
+                <li><a asp-page="/Contacts"><span>0.4</span> Контакты</a></li>
+            </ul>
+    </aside>
+
+    <header class="site-header">
+        <div class="logo">Черный фронт</div>
+        
+        @if (IsSectionDefined("CustomNav"))
+        {
+            @RenderSection("CustomNav", required: false)
+        }
+        else
+        {
+            <nav class="main-nav">
+                <ul>
+                    <li><a asp-page="/Index" asp-fragment="about" class="nav-link">О нас</a></li>
+                    <li><a asp-page="/Index" class="nav-link">Главная</a></li>
+                    <li><a asp-page="/Index" asp-fragment="structure" class="nav-link">Устройство</a></li>
+                </ul>
+            </nav>
+        }
+    </header>
+
+
+    @RenderBody()
+
+</body>
+</html>

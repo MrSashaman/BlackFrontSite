@@ -1,0 +1,23 @@
+@page
+@model FreeLibraryModel
+@{
+    ViewData["Title"] = "Вольная библиотека";
+}
+
+@section CustomNav {
+    <nav class="main-nav">
+        <ul>
+            <li><a asp-page="/Index" asp-fragment="about" class="nav-link">Главная</a></li>
+            <li><a asp-page="/FreeLibrary" asp-asp-fragment="library" class="nav-link">Библиотека</a></li>
+            <li><a asp-page="/creation" asp-fragment="about" class="nav-link">Творчество</a></li>
+        </ul>
+    </nav>
+}
+
+<main>
+    <section id="library">
+        <h1>Вольная библиотека</h1>
+        <h2>Лучшие труды и идеи</h2>
+        <p>Хлеб и воля и т.д.</p>
+    </section>
+</main>

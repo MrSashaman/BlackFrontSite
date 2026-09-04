@@ -1,0 +1,28 @@
+@page
+@model CreationModel
+@{
+    ViewData["Title"] = "Труды и Идеи";
+}
+
+
+@section CustomNav {
+    <nav class="main-nav">
+        <ul>
+            <li><a asp-page="/Index" asp-fragment="about" class="nav-link">Главная</a></li>
+            <li><a asp-page="/creation" asp-fragment="about" class="nav-link">Творчество</a></li>
+            <li><a asp-page="/FreeLibrary"  class="nav-link">Библиотека</a></li>
+        </ul>
+    </nav>
+}
+
+
+<main>
+    <section id="about">
+        <h1>Творчество</h1>
+        <h2></h2>           
+        <p>Нет настоящих государств — есть только разные формы господства.</p>
+        <p>Нет доброй власти — есть власть, которую общество ещё не успело ограничить.</p>
+        <p>Свобода начинается там, где человек перестаёт быть подданным.</p>
+        <p>Мы лишим власти тех, кто лишает нас свободы.</p>
+    </section>
+</main>
