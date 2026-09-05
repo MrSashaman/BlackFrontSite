@@ -11,7 +11,10 @@ namespace YourProject.Pages.Admin
     {
         public List<Category> Categories { get; set; } = new();
         private readonly AppDbContext _context;
+        public List<Badge> Badges { get; set; } = new();
 
+        [BindProperty]
+        public List<int> SelectedBadgeIds { get; set; } = new();
         public EditPostModel(AppDbContext context)
         {
             _context = context;
@@ -30,7 +33,16 @@ namespace YourProject.Pages.Admin
             Categories = await _context.Categories
                 .OrderBy(c => c.Name)
                 .ToListAsync();
+            Badges = await _context.Badges
+                .Where(b => b.IsAdminOnly)
+                .OrderBy(b => b.Id)
+                .ToListAsync();
 
+
+            SelectedBadgeIds = await _context.PostBadges
+                .Where(pb => pb.PostId == id)
+                .Select(pb => pb.BadgeId)
+                .ToListAsync();
             if (post == null)
             {
                 return NotFound();
@@ -64,7 +76,34 @@ namespace YourProject.Pages.Admin
 
             var post = await _context.Posts
                 .FirstOrDefaultAsync(p => p.Id == Input.Id);
+            var oldBadges = await _context.PostBadges
+                .Where(pb => pb.PostId == post.Id)
+                .ToListAsync();
 
+
+            _context.PostBadges.RemoveRange(oldBadges);
+
+            var validBadgeIds = await _context.Badges
+                .Where(b =>
+                    SelectedBadgeIds.Contains(b.Id) &&
+                    b.IsAdminOnly)
+                .Select(b => b.Id)
+                .ToListAsync();
+
+
+            foreach (var badgeId in validBadgeIds)
+            {
+                _context.PostBadges.Add(new PostBadge
+                {
+                    PostId = post.Id,
+                    BadgeId = badgeId
+                });
+            }
+
+            post.UpdatedAt = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+            
             if (post == null)
             {
                 return NotFound();

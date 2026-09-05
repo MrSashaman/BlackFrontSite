@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 public class PostModel : PageModel
 {
     private readonly AppDbContext _context;
-
+    public List<PostBadge> PostBadges { get; set; } = new();
     public PostModel(AppDbContext context)
     {
         _context = context;
@@ -18,6 +18,9 @@ public class PostModel : PageModel
         var post = await _context.Posts
 
             .Include(p => p.Category)
+
+            .Include(p => p.PostBadges)
+                .ThenInclude(pb => pb.Badge)
 
             .AsNoTracking()
 

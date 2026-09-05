@@ -71,7 +71,34 @@
                 <span asp-validation-for="Input.Content"></span>
 
             </div>
+            <div class="admin-badge-selector">
 
+                <label>Редакционные значки</label>
+
+                <div class="badge-options">
+
+                    @foreach (var badge in Model.Badges)
+                    {
+                        bool selected =
+                            Model.SelectedBadgeIds.Contains(badge.Id);
+
+                        <label class="badge-checkbox">
+
+                            <input type="checkbox"
+                                name="SelectedBadgeIds"
+                                value="@badge.Id"
+                                checked="@selected" />
+
+                            <span>
+                                @badge.Emoji @badge.Name
+                            </span>
+
+                        </label>
+                    }
+
+                </div>
+
+            </div>
 
             <div class="admin-actions">
 

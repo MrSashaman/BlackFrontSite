@@ -68,7 +68,21 @@
                     @(Model.Post.UpdatedAt.Value.ToLocalTime().ToString("dd.MM.yyyy"))
                 </div>
             }
+            @if (Model.Post.PostBadges.Count > 0)
+            {
+                <div class="editorial-badges">
 
+                    @foreach (var postBadge in Model.Post.PostBadges)
+                    {
+                        <span class="editorial-badge">
+                            @postBadge.Badge.Emoji
+                            @postBadge.Badge.Name
+                        </span>
+                    }
+
+                </div>
+            }
+            
             <hr />
 
             <div class="post-content">

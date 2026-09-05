@@ -9,6 +9,10 @@ namespace YourProject.Pages.Admin
     public class ManagePostsModel : PageModel
     {
         public List<Category> Categories { get; set; } = new();
+        public List<Badge> Badges { get; set; } = new();
+
+        [BindProperty]
+        public List<int> SelectedBadgeIds { get; set; } = new();
 
         private readonly AppDbContext _context;
 
@@ -34,6 +38,13 @@ namespace YourProject.Pages.Admin
             Categories = await _context.Categories
                 .OrderBy(c => c.Name)
                 .ToListAsync();
+            
+            Badges = await _context.Badges
+                .Where(b => b.IsAdminOnly)
+                .OrderBy(b => b.Id)
+                .ToListAsync();
+            
+            
         }
 
 
@@ -73,7 +84,25 @@ namespace YourProject.Pages.Admin
 
             await _context.SaveChangesAsync();
 
+            var validBadgeIds = await _context.Badges
+                .Where(b =>
+                    SelectedBadgeIds.Contains(b.Id) &&
+                    b.IsAdminOnly)
+                .Select(b => b.Id)
+                .ToListAsync();
 
+
+            foreach (var badgeId in validBadgeIds)
+            {
+                _context.PostBadges.Add(new PostBadge
+                {
+                    PostId = NewPost.Id,
+                    BadgeId = badgeId
+                });
+            }
+
+
+            await _context.SaveChangesAsync();
             return RedirectToPage();
         }
 

@@ -70,7 +70,21 @@
                         </a>
 
                     </h2>
+                    @if (post.PostBadges.Count > 0)
+                    {
+                        <div class="editorial-badges">
 
+                            @foreach (var postBadge in post.PostBadges)
+                            {
+                                <span class="editorial-badge">
+                                    @postBadge.Badge.Emoji
+                                    @postBadge.Badge.Name
+                                </span>
+                            }
+
+                        </div>
+                    }
+                    
                     <div class="news-date">
                         @(post.CreatedAt
                             .ToLocalTime()

@@ -11,8 +11,8 @@ public class Post
     public DateTime? UpdatedAt { get; set; }
 
 
-
     public int? CategoryId { get; set; }
 
     public Category? Category { get; set; }
+    public List<PostBadge> PostBadges { get; set; } = new();
 }
