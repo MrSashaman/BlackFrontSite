@@ -1,0 +1,65 @@
+@page "{id:int}"
+@model PostModel
+
+@{
+    ViewData["Title"] = Model.Post.Title + " - Черный фронт";
+}
+
+@section CustomNav {
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a asp-page="/Index"
+                   asp-fragment="about"
+                   class="nav-link">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/News"
+                   class="nav-link">
+                    Новости
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/FreeLibrary"
+                   asp-fragment="library"
+                   class="nav-link">
+                    Библиотека
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/creation"
+                   asp-fragment="about"
+                   class="nav-link">
+                    Творчество
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+
+<main>
+    <section id="post">
+
+        <article class="post">
+
+            <h1>@Model.Post.Title</h1>
+
+            <div class="post-date">
+                @Model.Post.CreatedAt.ToString("dd.MM.yyyy HH:mm")
+            </div>
+
+            <hr />
+
+            <div class="post-content">
+                @Model.Post.Content
+            </div>
+
+        </article>
+
+    </section>
+</main>

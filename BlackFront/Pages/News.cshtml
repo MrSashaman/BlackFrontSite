@@ -1,0 +1,74 @@
+@page
+@model NewsModel
+
+@{
+    ViewData["Title"] = "Новости - Черный фронт";
+}
+
+@section CustomNav {
+    <nav class="main-nav">
+        <ul>
+            <li>
+                <a asp-page="/Index"
+                   asp-fragment="about"
+                   class="nav-link">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/FreeLibrary"
+                   asp-fragment="library"
+                   class="nav-link">
+                    Библиотека
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/creation"
+                   asp-fragment="about"
+                   class="nav-link">
+                    Творчество
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+
+<main>
+    <section id="news">
+
+        <h1>Новости</h1>
+        <hr />
+
+        @if (Model.Posts.Count == 0)
+        {
+            <p>Новостей пока нет.</p>
+        }
+        else
+        {
+            <div class="news-list">
+
+                @foreach (var post in Model.Posts)
+                {
+                    <article class="news-post">
+
+                        <h2 class="news-title">
+                            <a asp-page="/Post"
+                               asp-route-id="@post.Id">
+                                @post.Title
+                            </a>
+                        </h2>
+
+                        <div class="news-date">
+                            @post.CreatedAt.ToString("dd.MM.yyyy")
+                        </div>
+
+                    </article>
+                }
+
+            </div>
+        }
+
+    </section>
+</main>

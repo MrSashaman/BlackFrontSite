@@ -1,0 +1,43 @@
+@page
+@model YourProject.Pages.Admin.ManagePostsModel
+@{
+    ViewData["Title"] = "Управление новостями";
+}
+
+<h1>Панель администратора: Новости</h1>
+
+<div class="card my-4">
+    <div class="card-body">
+        <h3>Добавить новость</h3>
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="NewPost.Title" class="form-label">Заголовок</label>
+                <input asp-for="NewPost.Title" class="form-core control" required />
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewPost.Content" class="form-label">Текст новости</label>
+                <textarea asp-for="NewPost.Content" class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Опубликовать</button>
+        </form>
+    </div>
+</div>
+
+<h3>Текущие новости</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Заголовок</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in Model.Posts)
+        {
+            <tr>
+                <td>@post.CreatedAt.ToLocalTime().ToString("g")</td>
+                <td>@post.Title</td>
+            </tr>
+        }
+    </tbody>
+</table>
