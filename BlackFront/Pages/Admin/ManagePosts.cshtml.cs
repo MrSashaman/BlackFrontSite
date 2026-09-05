@@ -8,6 +8,8 @@ namespace YourProject.Pages.Admin
     [Authorize(Roles = "Admin")]
     public class ManagePostsModel : PageModel
     {
+        public List<Category> Categories { get; set; } = new();
+
         private readonly AppDbContext _context;
 
         public ManagePostsModel(AppDbContext context)
@@ -24,28 +26,53 @@ namespace YourProject.Pages.Admin
         public async Task OnGetAsync()
         {
             Posts = await _context.Posts
+                .Include(p => p.Category)
                 .OrderByDescending(p => p.CreatedAt)
+                .ToListAsync();
+
+
+            Categories = await _context.Categories
+                .OrderBy(c => c.Name)
                 .ToListAsync();
         }
 
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (NewPost.CategoryId == null ||
+                !await _context.Categories
+                    .AnyAsync(c => c.Id == NewPost.CategoryId))
+            {
+                ModelState.AddModelError(
+                    "NewPost.CategoryId",
+                    "Выберите категорию.");
+            }
+
+
             if (!ModelState.IsValid)
             {
                 Posts = await _context.Posts
+                    .Include(p => p.Category)
                     .OrderByDescending(p => p.CreatedAt)
+                    .ToListAsync();
+
+                Categories = await _context.Categories
+                    .OrderBy(c => c.Name)
                     .ToListAsync();
 
                 return Page();
             }
 
+
             NewPost.CreatedAt = DateTime.UtcNow;
+
             NewPost.UpdatedAt = null;
+
 
             _context.Posts.Add(NewPost);
 
             await _context.SaveChangesAsync();
+
 
             return RedirectToPage();
         }

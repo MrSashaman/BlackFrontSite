@@ -16,7 +16,11 @@ public class PostModel : PageModel
     public async Task<IActionResult> OnGetAsync(int id)
     {
         var post = await _context.Posts
+
+            .Include(p => p.Category)
+
             .AsNoTracking()
+
             .FirstOrDefaultAsync(p => p.Id == id);
 
         if (post == null)

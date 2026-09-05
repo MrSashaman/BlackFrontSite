@@ -46,7 +46,13 @@
     <section id="post">
 
         <article class="post">
-
+        
+            @if (Model.Post.Category != null)
+            {
+                <div class="post-category">
+                    @Model.Post.Category.Name
+                </div>
+            }
 
             <h1>@Model.Post.Title</h1>
 

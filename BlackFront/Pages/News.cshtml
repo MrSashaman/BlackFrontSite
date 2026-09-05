@@ -49,23 +49,36 @@
         {
             <div class="news-list">
 
-                @foreach (var post in Model.Posts)
-                {
-                    <article class="news-post">
+            @foreach (var post in Model.Posts)
+            {
+                <article class="news-post">
 
-                        <h2 class="news-title">
-                            <a asp-page="/Post"
-                               asp-route-id="@post.Id">
-                                @post.Title
-                            </a>
-                        </h2>
-
-                        <div class="news-date">
-                            @post.CreatedAt.ToString("dd.MM.yyyy")
+                    @if (post.Category != null)
+                    {
+                        <div class="news-category">
+                            @post.Category.Name
                         </div>
+                    }
 
-                    </article>
-                }
+                    <h2 class="news-title">
+
+                        <a asp-page="/Post"
+                        asp-route-id="@post.Id">
+
+                            @post.Title
+
+                        </a>
+
+                    </h2>
+
+                    <div class="news-date">
+                        @(post.CreatedAt
+                            .ToLocalTime()
+                            .ToString("dd.MM.yyyy"))
+                    </div>
+
+                </article>
+            }
 
             </div>
         }

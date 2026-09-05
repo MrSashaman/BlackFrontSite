@@ -27,7 +27,32 @@
                            class="form-control"
                            required />
                 </div>
+                <div class="mb-3">
 
+                    <label asp-for="NewPost.CategoryId">
+                        Категория
+                    </label>
+
+                    <select asp-for="NewPost.CategoryId"
+                            class="form-control"
+                            required>
+
+                        <option value="">
+                            — Выберите категорию —
+                        </option>
+
+                        @foreach (var category in Model.Categories)
+                        {
+                            <option value="@category.Id">
+                                @category.Name
+                            </option>
+                        }
+
+                    </select>
+
+                    <span asp-validation-for="NewPost.CategoryId"></span>
+
+                </div>
                 <div class="mb-3">
                     <label asp-for="NewPost.Content">
                         Текст новости
@@ -68,8 +93,21 @@
                         <div class="admin-post-info">
 
                             <strong>
-                                @post.Title
+                            @post.Title
                             </strong>
+
+                            <div class="admin-post-category">
+
+                                @if (post.Category != null)
+                                {
+                                    @post.Category.Name
+                                }
+                                else
+                                {
+                                    <span>Без категории</span>
+                                }
+
+                            </div>
 
                             <div class="admin-post-date">
                                 Создан:

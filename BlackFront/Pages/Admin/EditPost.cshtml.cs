@@ -9,6 +9,7 @@ namespace YourProject.Pages.Admin
     [Authorize(Roles = "Admin")]
     public class EditPostModel : PageModel
     {
+        public List<Category> Categories { get; set; } = new();
         private readonly AppDbContext _context;
 
         public EditPostModel(AppDbContext context)
@@ -26,6 +27,9 @@ namespace YourProject.Pages.Admin
             var post = await _context.Posts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
+            Categories = await _context.Categories
+                .OrderBy(c => c.Name)
+                .ToListAsync();
 
             if (post == null)
             {
@@ -37,7 +41,8 @@ namespace YourProject.Pages.Admin
             {
                 Id = post.Id,
                 Title = post.Title,
-                Content = post.Content
+                Content = post.Content,
+                CategoryId = post.CategoryId
             };
 
 
@@ -49,6 +54,10 @@ namespace YourProject.Pages.Admin
         {
             if (!ModelState.IsValid)
             {
+                Categories = await _context.Categories
+                    .OrderBy(c => c.Name)
+                    .ToListAsync();
+
                 return Page();
             }
 
@@ -63,7 +72,10 @@ namespace YourProject.Pages.Admin
 
 
             post.Title = Input.Title.Trim();
+
             post.Content = Input.Content.Trim();
+
+            post.CategoryId = Input.CategoryId;
 
             post.UpdatedAt = DateTime.UtcNow;
 
@@ -86,6 +98,10 @@ namespace YourProject.Pages.Admin
 
             [Required]
             public string Content { get; set; } = string.Empty;
+
+
+            [Required]
+            public int? CategoryId { get; set; }
         }
     }
 }

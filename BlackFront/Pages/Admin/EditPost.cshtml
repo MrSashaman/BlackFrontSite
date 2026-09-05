@@ -32,7 +32,31 @@
 
             </div>
 
+            <div class="mb-3">
 
+                <label asp-for="Input.CategoryId">
+                    Категория
+                </label>
+
+                <select asp-for="Input.CategoryId"
+                        class="form-control">
+
+                    <option value="">
+                        — Выберите категорию —
+                    </option>
+
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">
+                            @category.Name
+                        </option>
+                    }
+
+                </select>
+
+                <span asp-validation-for="Input.CategoryId"></span>
+
+            </div>
             <div class="mb-3">
 
                 <label asp-for="Input.Content">
