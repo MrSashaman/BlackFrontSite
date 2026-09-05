@@ -1,43 +1,124 @@
 @page
 @model YourProject.Pages.Admin.ManagePostsModel
+
 @{
     ViewData["Title"] = "Управление новостями";
 }
 
-<h1>Панель администратора: Новости</h1>
+<main>
+    <section id="admin-posts">
 
-<div class="card my-4">
-    <div class="card-body">
-        <h3>Добавить новость</h3>
-        <form method="post">
-            <div class="mb-3">
-                <label asp-for="NewPost.Title" class="form-label">Заголовок</label>
-                <input asp-for="NewPost.Title" class="form-core control" required />
-            </div>
-            <div class="mb-3">
-                <label asp-for="NewPost.Content" class="form-label">Текст новости</label>
-                <textarea asp-for="NewPost.Content" class="form-control" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Опубликовать</button>
-        </form>
-    </div>
-</div>
+        <h1>Панель администратора: Новости</h1>
 
-<h3>Текущие новости</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Дата</th>
-            <th>Заголовок</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var post in Model.Posts)
+        <hr />
+
+        <div class="admin-create-post">
+
+            <h2>Добавить новость</h2>
+
+            <form method="post">
+
+                <div class="mb-3">
+                    <label asp-for="NewPost.Title">
+                        Заголовок
+                    </label>
+
+                    <input asp-for="NewPost.Title"
+                           class="form-control"
+                           required />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewPost.Content">
+                        Текст новости
+                    </label>
+
+                    <textarea asp-for="NewPost.Content"
+                              class="form-control"
+                              rows="8"
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn">
+                    Опубликовать
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <hr />
+
+
+        <h2>Текущие новости</h2>
+
+        @if (Model.Posts.Count == 0)
         {
-            <tr>
-                <td>@post.CreatedAt.ToLocalTime().ToString("g")</td>
-                <td>@post.Title</td>
-            </tr>
+            <p>Публикаций пока нет.</p>
         }
-    </tbody>
-</table>
+        else
+        {
+            <div class="admin-post-list">
+
+                @foreach (var post in Model.Posts)
+                {
+                    <div class="admin-post">
+
+                        <div class="admin-post-info">
+
+                            <strong>
+                                @post.Title
+                            </strong>
+
+                            <div class="admin-post-date">
+                                Создан:
+                                @post.CreatedAt
+                                    .ToLocalTime()
+                                    .ToString("dd.MM.yyyy HH:mm")
+
+                                @if (post.UpdatedAt.HasValue)
+                                {
+                                    <span>
+                                        · Обновлён:
+                                        @post.UpdatedAt.Value
+                                            .ToLocalTime()
+                                            .ToString("dd.MM.yyyy HH:mm")
+                                    </span>
+                                }
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-actions">
+
+                            <a asp-page="/Admin/EditPost"
+                               asp-route-id="@post.Id"
+                               class="admin-edit">
+                                Редактировать
+                            </a>
+
+
+                            <form method="post"
+                                  asp-page-handler="Delete"
+                                  asp-route-id="@post.Id"
+                                  onsubmit="return confirm('Вы действительно хотите удалить публикацию «@post.Title»?');">
+
+                                <button type="submit"
+                                        class="admin-delete">
+                                    Удалить
+                                </button>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        }
+
+    </section>
+</main>

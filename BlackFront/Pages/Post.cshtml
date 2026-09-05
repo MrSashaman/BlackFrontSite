@@ -47,11 +47,21 @@
 
         <article class="post">
 
+
             <h1>@Model.Post.Title</h1>
 
             <div class="post-date">
-                @Model.Post.CreatedAt.ToString("dd.MM.yyyy HH:mm")
+                Опубликовано:
+                @(Model.Post.CreatedAt.ToLocalTime().ToString("dd.MM.yyyy"))
             </div>
+            
+            @if (Model.Post.UpdatedAt.HasValue)
+            {
+                <div class="post-updated">
+                    Обновлено:
+                    @(Model.Post.UpdatedAt.Value.ToLocalTime().ToString("dd.MM.yyyy"))
+                </div>
+            }
 
             <hr />
 

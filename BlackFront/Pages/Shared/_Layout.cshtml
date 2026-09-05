@@ -11,16 +11,59 @@
 
     <aside class="sidebar-nav">
         <div class="sidebar-title">Навигация</div>
-            <ul>
-                <li><a asp-page="/Index"><span>01.</span> Главная</a></li>
-                <li><a asp-page="/FreeLibrary"><span>02.</span> Библиотека</a></li>
-                <li><a asp-page="/Creation"><span>03.</span> Творчество</a></li>
-                <li><a asp-page="/Contacts"><span>0.4</span> Контакты</a></li>
-                <li><a asp-page="/Login"><span>0.5</span> Войти</a></li>
-                <li><a asp-page="/Admin/ManagePosts"><span>0.6</span> ManagePosts</a></li>
 
+        <ul>
+            <li>
+                <a asp-page="/Index">
+                    <span>01.</span> Главная
+                </a>
+            </li>
 
-            </ul>
+            <li>
+                <a asp-page="/FreeLibrary">
+                    <span>02.</span> Библиотека
+                </a>
+            </li>
+
+            <li>
+                <a asp-page="/Creation">
+                    <span>03.</span> Творчество
+                </a>
+            </li>
+            <li>
+                <a asp-page="/News">
+                    <span>04.</span> Новости
+                </a>
+            </li>
+            <li>
+                <a asp-page="/Contacts">
+                    <span>05.</span> Контакты
+                </a>
+            </li>
+
+            @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Admin"))
+            {
+                <li>
+                    <a asp-page="/Admin/ManagePosts">
+                        <span>ADM</span> Панель
+                    </a>
+                </li>
+
+                <li>
+                    <form method="post"
+                        asp-page="/Logout"
+                        class="logout-form">
+
+                        <button type="submit"
+                                class="sidebar-logout">
+                            <span>ADM</span> Выйти
+                        </button>
+
+                    </form>
+                </li>
+            }
+
+        </ul>
     </aside>
 
     <header class="site-header">

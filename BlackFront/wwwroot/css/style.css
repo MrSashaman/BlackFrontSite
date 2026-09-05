@@ -426,3 +426,179 @@ section:last-child {
     line-height: 1.7;
     white-space: pre-line;
 }
+
+
+.admin-create-post {
+    margin: 2rem 0;
+}
+
+.admin-create-post label,
+#edit-post label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    background: #ffffff;
+    color: var(--text-color);
+
+    margin-bottom: 1rem;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+
+.admin-post-list {
+    margin-top: 1.5rem;
+}
+
+.admin-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1.25rem 0;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-post:last-child {
+    border-bottom: none;
+}
+
+.admin-post-info {
+    flex: 1;
+}
+
+.admin-post-date {
+    margin-top: 0.3rem;
+
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+
+.admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+
+.admin-edit,
+.admin-cancel,
+.admin-save,
+.admin-delete {
+    display: inline-block;
+
+    padding: 0.55rem 0.9rem;
+
+    border: none;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+
+.admin-edit,
+.admin-save {
+    background: var(--primary-color);
+    color: white;
+}
+
+.admin-edit:hover,
+.admin-save:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+
+.admin-cancel {
+    background: #e2e8f0;
+    color: var(--text-color);
+}
+
+.admin-cancel:hover {
+    background: #cbd5e1;
+    color: var(--text-color);
+}
+
+
+.admin-delete {
+    background: #dc2626;
+    color: white;
+}
+
+.admin-delete:hover {
+    background: #b91c1c;
+}
+
+
+.post-updated {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 3px;
+}
+
+
+.logout-form {
+    margin: 0;
+}
+
+.sidebar-logout {
+    display: block;
+    width: 100%;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    color: #64748b;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+.sidebar-logout span {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.sidebar-logout:hover {
+    color: var(--text-color);
+    transform: translateX(5px);
+}
