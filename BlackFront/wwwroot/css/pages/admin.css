@@ -1,0 +1,103 @@
+/* Admin pages: forms and post management */
+
+.admin-create-post {
+    margin: 2rem 0;
+}
+
+.admin-create-post label,
+#edit-post label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.admin-post-list {
+    margin-top: 1.5rem;
+}
+
+.admin-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-post:last-child {
+    border-bottom: none;
+}
+
+.admin-post-info {
+    flex: 1;
+}
+
+.admin-post-date {
+    margin-top: 0.3rem;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-actions form {
+    margin: 0;
+}
+
+.admin-edit,
+.admin-cancel,
+.admin-save,
+.admin-delete {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border: none;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.admin-edit,
+.admin-save {
+    background: var(--primary-color);
+    color: white;
+}
+
+.admin-edit:hover,
+.admin-save:hover {
+    background: var(--primary-hover);
+    color: white;
+}
+
+.admin-cancel {
+    background: #e2e8f0;
+    color: var(--text-color);
+}
+
+.admin-cancel:hover {
+    background: #cbd5e1;
+    color: var(--text-color);
+}
+
+.admin-delete {
+    background: #dc2626;
+    color: white;
+}
+
+.admin-delete:hover {
+    background: #b91c1c;
+}
+
+.admin-post-category {
+    margin-top: 0.2rem;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+}

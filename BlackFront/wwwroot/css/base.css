@@ -1,0 +1,75 @@
+/* Base: variables, reset, typography and global links */
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --max-width: 800px;
+    --radius: 12px;
+    --transition: all 0.2s ease-in-out;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: #475569;
+}
+
+a {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+a:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+a:active {
+    transform: translateY(0);
+}

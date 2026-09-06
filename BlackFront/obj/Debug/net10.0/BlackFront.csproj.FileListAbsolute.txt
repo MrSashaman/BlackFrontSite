@@ -213,4 +213,13 @@ C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\bin\Debug
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\BlackFront.csproj.AssemblyReference.cache
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\BlackFront.csproj.Up2Date
-C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\1afusbp4ow-{0}-bk07180jfv-bk07180jfv.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\3akv8dwluh-{0}-jegytkvpfl-jegytkvpfl.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\idc4s13ljy-{0}-ptjlti4abp-ptjlti4abp.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\fv2rk1ej9h-{0}-w6cgjihgk6-w6cgjihgk6.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\na22lzucpe-{0}-mqltivt96n-mqltivt96n.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\phcepnwcsp-{0}-0xhtxm47mo-0xhtxm47mo.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\gekqr7c14f-{0}-2yhp7k50tl-2yhp7k50tl.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\x6kfgj1xxw-{0}-oar0wui5hs-oar0wui5hs.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\gs2qguwp78-{0}-cnx8vjky7c-cnx8vjky7c.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\pmweifvjcg-{0}-8h6h1rbpot-8h6h1rbpot.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\1afusbp4ow-{0}-752kbgnu7x-752kbgnu7x.gz
