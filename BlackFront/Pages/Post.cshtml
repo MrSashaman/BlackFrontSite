@@ -88,7 +88,34 @@
             <div class="post-content">
                 @Model.Post.Content
             </div>
+            @{
+                var nextPost = Model.RecommendedPosts.FirstOrDefault();
+            }
 
+            @if (nextPost != null)
+            {
+                <div class="next-post">
+
+                    <div class="next-post-label">
+                        Следующий материал
+                    </div>
+
+                    <a asp-page="/Post"
+                    asp-route-id="@nextPost.Id"
+                    class="next-post-link">
+
+                        <span class="next-post-title">
+                            @nextPost.Title
+                        </span>
+
+                        <span class="next-post-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+            }
         </article>
 
         @if (Model.RecommendedPosts.Count > 0)
