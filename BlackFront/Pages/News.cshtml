@@ -40,6 +40,34 @@
 
         <h1>Новости</h1>
 <hr />
+<form method="get"
+      class="news-search">
+
+    <input type="text"
+           name="Search"
+           value="@Model.Search"
+           placeholder="Поиск по публикациям..."
+           class="news-search-input" />
+
+    <button type="submit"
+            class="news-search-button">
+        Найти
+    </button>
+    
+    @if (!string.IsNullOrWhiteSpace(Model.Search))
+    {
+        <div class="search-info">
+            Результаты поиска по запросу:
+            <strong>@Model.Search</strong>
+
+            <a asp-page="/News"
+            class="search-reset">
+                Сбросить
+            </a>
+        </div>
+    }
+</form>
+
 
 
 @if (Model.FeaturedPosts.Count > 0)
