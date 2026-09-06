@@ -39,19 +39,22 @@
     <section id="news">
 
         <h1>Новости</h1>
-        <hr />
+<hr />
 
-        @if (Model.Posts.Count == 0)
-        {
-            <p>Новостей пока нет.</p>
-        }
-        else
-        {
-            <div class="news-list">
 
-            @foreach (var post in Model.Posts)
+@if (Model.FeaturedPosts.Count > 0)
+{
+    <div class="featured-section">
+
+        <div class="news-section-title">
+            Избранное редакции
+        </div>
+
+        <div class="featured-list">
+
+            @foreach (var post in Model.FeaturedPosts)
             {
-                <article class="news-post">
+                <article class="featured-post">
 
                     @if (post.Category != null)
                     {
@@ -60,16 +63,18 @@
                         </div>
                     }
 
-                    <h2 class="news-title">
+                    <h2 class="featured-title">
 
                         <a asp-page="/Post"
-                        asp-route-id="@post.Id">
+                           asp-route-id="@post.Id">
 
                             @post.Title
 
                         </a>
 
                     </h2>
+
+
                     @if (post.PostBadges.Count > 0)
                     {
                         <div class="editorial-badges">
@@ -84,7 +89,8 @@
 
                         </div>
                     }
-                    
+
+
                     <div class="news-date">
                         @(post.CreatedAt
                             .ToLocalTime()
@@ -94,8 +100,79 @@
                 </article>
             }
 
-            </div>
-        }
+        </div>
+
+    </div>
+}
+
+
+<div class="latest-section">
+
+    <div class="news-section-title">
+        Последние публикации
+    </div>
+
+    @if (Model.LatestPosts.Count == 0)
+    {
+        <p>Других публикаций пока нет.</p>
+    }
+    else
+    {
+        <div class="news-list">
+
+            @foreach (var post in Model.LatestPosts)
+            {
+                <article class="news-post">
+
+                    @if (post.Category != null)
+                    {
+                        <div class="news-category">
+                            @post.Category.Name
+                        </div>
+                    }
+
+                    <h2 class="news-title">
+
+                        <a asp-page="/Post"
+                           asp-route-id="@post.Id">
+
+                            @post.Title
+
+                        </a>
+
+                    </h2>
+
+
+                    @if (post.PostBadges.Count > 0)
+                    {
+                        <div class="editorial-badges">
+
+                            @foreach (var postBadge in post.PostBadges)
+                            {
+                                <span class="editorial-badge">
+                                    @postBadge.Badge.Emoji
+                                    @postBadge.Badge.Name
+                                </span>
+                            }
+
+                        </div>
+                    }
+
+
+                    <div class="news-date">
+                        @(post.CreatedAt
+                            .ToLocalTime()
+                            .ToString("dd.MM.yyyy"))
+                    </div>
+
+                </article>
+            }
+
+        </div>
+    }
+
+    </div>
+        
 
     </section>
 </main>

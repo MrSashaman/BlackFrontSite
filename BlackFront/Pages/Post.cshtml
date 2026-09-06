@@ -91,5 +91,47 @@
 
         </article>
 
+        @if (Model.RecommendedPosts.Count > 0)
+        {
+            <aside class="recommendations-panel">
+
+                <div class="recommendations-title">
+                    По теме
+                </div>
+
+                <div class="recommendations-list">
+
+                    @foreach (var recommended in Model.RecommendedPosts)
+                    {
+                        <article class="recommendation-item">
+
+                            @if (recommended.Category != null)
+                            {
+                                <div class="recommendation-category">
+                                    @recommended.Category.Name
+                                </div>
+                            }
+
+                            <a asp-page="/Post"
+                            asp-route-id="@recommended.Id"
+                            class="recommendation-link">
+
+                                @recommended.Title
+
+                            </a>
+
+                            <div class="recommendation-date">
+                                @(recommended.CreatedAt
+                                    .ToLocalTime()
+                                    .ToString("dd.MM.yyyy"))
+                            </div>
+
+                        </article>
+                    }
+
+                </div>
+
+            </aside>
+        }
     </section>
 </main>

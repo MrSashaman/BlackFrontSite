@@ -58,7 +58,14 @@ namespace YourProject.Pages.Admin
                     "NewPost.CategoryId",
                     "Выберите категорию.");
             }
+            
+            NewPost.CreatedAt = DateTime.UtcNow;
+            NewPost.UpdatedAt = null;
 
+            if (NewPost.IsFeatured)
+            {
+                NewPost.FeaturedAt = DateTime.UtcNow;
+            }
 
             if (!ModelState.IsValid)
             {

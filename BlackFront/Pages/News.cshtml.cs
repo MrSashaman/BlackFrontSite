@@ -10,20 +10,29 @@ public class NewsModel : PageModel
         _context = context;
     }
 
-    public List<Post> Posts { get; set; } = new();
+    public List<Post> FeaturedPosts { get; set; } = new();
+
+    public List<Post> LatestPosts { get; set; } = new();
 
     public async Task OnGetAsync()
     {
-        Posts = await _context.Posts
+        FeaturedPosts = await _context.Posts
             .Include(p => p.Category)
-
             .Include(p => p.PostBadges)
                 .ThenInclude(pb => pb.Badge)
-
+            .Where(p => p.IsFeatured)
             .AsNoTracking()
+            .OrderByDescending(p => p.FeaturedAt)
+            .ToListAsync();
 
+
+        LatestPosts = await _context.Posts
+            .Include(p => p.Category)
+            .Include(p => p.PostBadges)
+                .ThenInclude(pb => pb.Badge)
+            .Where(p => !p.IsFeatured)
+            .AsNoTracking()
             .OrderByDescending(p => p.CreatedAt)
-
             .ToListAsync();
     }
 }

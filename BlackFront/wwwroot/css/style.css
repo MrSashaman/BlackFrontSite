@@ -664,3 +664,184 @@ textarea.form-control {
     font-size: 0.78rem;
     font-weight: 600;
 }
+
+
+.news-section-title {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: #64748b;
+}
+
+
+.featured-section {
+    margin-bottom: 3rem;
+}
+
+
+.featured-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.featured-post {
+    padding: 1.25rem;
+
+    background: #f8fafc;
+
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+
+.featured-title {
+    margin: 0.25rem 0;
+    font-size: 1.35rem;
+    font-weight: 650;
+}
+
+
+.featured-title a {
+    display: inline;
+
+    padding: 0;
+    background: none;
+
+    color: var(--text-color);
+
+    text-decoration: none;
+}
+
+
+.featured-title a:hover {
+    background: none;
+    color: var(--primary-color);
+
+    transform: none;
+}
+
+.recommendations-panel {
+    position: fixed;
+
+    top: 50%;
+    right: 2rem;
+
+    transform: translateY(-50%);
+
+    width: 260px;
+
+    padding: 1.25rem;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 0.05),
+        0 2px 4px -2px rgb(0 0 0 / 0.05);
+
+    z-index: 90;
+}
+
+
+.recommendations-title {
+    margin-bottom: 1rem;
+
+    color: #64748b;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+.recommendation-item {
+    padding: 0.9rem 0;
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recommendation-item:first-child {
+    padding-top: 0;
+}
+
+.recommendation-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.recommendation-category {
+    margin-bottom: 0.25rem;
+
+    color: var(--primary-color);
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.recommendation-link {
+    display: inline;
+
+    padding: 0;
+    background: none;
+
+    color: var(--text-color);
+
+    border-radius: 0;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    text-decoration: none;
+}
+
+
+.recommendation-link:hover {
+    background: none;
+
+    color: var(--primary-color);
+
+    transform: none;
+}
+
+
+
+.recommendation-date {
+    margin-top: 0.35rem;
+
+    color: #94a3b8;
+
+    font-size: 0.7rem;
+}
+
+@media (max-width: 1300px) {
+
+    .recommendations-panel {
+        position: static;
+
+        width: 100%;
+
+        margin-top: 3rem;
+
+        transform: none;
+
+        box-shadow: none;
+    }
+
+}

@@ -54,7 +54,8 @@ namespace YourProject.Pages.Admin
                 Id = post.Id,
                 Title = post.Title,
                 Content = post.Content,
-                CategoryId = post.CategoryId
+                CategoryId = post.CategoryId,
+                IsFeatured = post.IsFeatured
             };
 
 
@@ -110,14 +111,24 @@ namespace YourProject.Pages.Admin
             }
 
 
+            bool wasFeatured = post.IsFeatured;
+
             post.Title = Input.Title.Trim();
-
             post.Content = Input.Content.Trim();
-
             post.CategoryId = Input.CategoryId;
 
-            post.UpdatedAt = DateTime.UtcNow;
+            post.IsFeatured = Input.IsFeatured;
 
+            if (!wasFeatured && Input.IsFeatured)
+            {
+                post.FeaturedAt = DateTime.UtcNow;
+            }
+            else if (!Input.IsFeatured)
+            {
+                post.FeaturedAt = null;
+            }
+
+            post.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
 
@@ -130,6 +141,7 @@ namespace YourProject.Pages.Admin
         {
             public int Id { get; set; }
 
+            public bool IsFeatured { get; set; }
 
             [Required]
             public string Title { get; set; } = string.Empty;
