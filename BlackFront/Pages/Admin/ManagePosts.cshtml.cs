@@ -2,6 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using DocumentFormat.OpenXml.Packaging; 
+using System.Text; 
+using UglyToad.PdfPig;
+using UglyToad.PdfPig.Content;
+
 
 namespace YourProject.Pages.Admin
 {
@@ -113,6 +118,64 @@ namespace YourProject.Pages.Admin
             return RedirectToPage();
         }
 
+
+        public async Task<IActionResult> OnPostParseFileAsync(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return new JsonResult(new { success = false, error = "Файл пуст или не передан." });
+            }
+
+            var extension = System.IO.Path.GetExtension(file.FileName).ToLower().Replace(".", "");
+            string extractedText = "";
+
+            try
+            {
+                using (var stream = file.OpenReadStream())
+                {
+                    switch (extension)
+                    {
+                        case "txt":
+                        case "json":
+                            using (var reader = new StreamReader(stream, Encoding.UTF8))
+                            {
+                                extractedText = await reader.ReadToEndAsync();
+                            }
+                            break;
+
+                        case "docx":
+                            using (DocumentFormat.OpenXml.Packaging.WordprocessingDocument wordDoc = 
+                                DocumentFormat.OpenXml.Packaging.WordprocessingDocument.Open(stream, false))
+                            {
+                                var body = wordDoc.MainDocumentPart.Document.Body;
+                                extractedText = body.InnerText; 
+                            }
+                            break;
+
+                        case "pdf":
+                            using (PdfDocument document = PdfDocument.Open(stream))
+                            {
+                                var textBuilder = new StringBuilder();
+                                foreach (var page in document.GetPages())
+                                {
+                                    textBuilder.AppendLine(page.Text);
+                                }
+                                extractedText = textBuilder.ToString();
+                            }
+                            break;
+
+                        default:
+                            return new JsonResult(new { success = false, error = "Формат файла не поддерживается сервером." });
+                    }
+                }
+
+                return new JsonResult(new { success = true, content = extractedText });
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(new { success = false, error = $"Не удалось прочитать файл: {ex.Message}" });
+            }
+        }
 
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {

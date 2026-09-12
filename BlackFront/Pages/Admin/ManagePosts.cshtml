@@ -16,7 +16,7 @@
 
             <h2>Добавить новость</h2>
 
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label asp-for="NewPost.Title">
@@ -53,15 +53,34 @@
                     <span asp-validation-for="NewPost.CategoryId"></span>
 
                 </div>
+
                 <div class="mb-3">
-                    <label asp-for="NewPost.Content">
-                        Текст новости
-                    </label>
+                    <label asp-for="NewPost.Content">Текст новости</label>
+                    
+                    <div class="file-upload-block" style="margin-bottom: 10px;">
+                        <label for="file-input" style="cursor: pointer; color: #007bff; text-decoration: underline;">
+                            Выбрать файл (.txt, .json, .docx, .pdf)
+                        </label>
+                        <input type="file" id="file-input" 
+                            accept=".txt,.json,.pdf,.docx" 
+                            style="display: none;" 
+                            onchange="uploadFileAutomatically(this)" />
+                        <span id="upload-status" style="margin-left: 10px; font-size: 0.9em;"></span>
+                    </div>
+
+
+                    
+
+
+
+
 
                     <textarea asp-for="NewPost.Content"
-                              class="form-control"
-                              rows="8"
-                              required></textarea>
+                            class="form-control"
+                            rows="8"
+                            required></textarea>
+
+                    
                 </div>
                 <div class="admin-badge-selector">
 
@@ -193,3 +212,8 @@
 
     </section>
 </main>
+
+@section Scripts {
+    <script src="~/js/ckeditor.js" asp-append-version="true"></script>
+    <script src="~/js/admin-upload.js" asp-append-version="true"></script>
+}
