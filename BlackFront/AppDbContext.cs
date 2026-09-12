@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using BlackFront.Models;
 
 public class AppDbContext : DbContext
 {
@@ -10,7 +11,7 @@ public class AppDbContext : DbContext
 
 
     public DbSet<Post> Posts => Set<Post>();
-
+    public DbSet<Book> Books { get; set; }
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<Badge> Badges => Set<Badge>();
 

@@ -1,0 +1,48 @@
+@page
+@model BlackFront.Pages.Admin.AddBookModel
+@{
+    ViewData["Title"] = "Добавить в Вольную Библиотеку";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card bg-dark text-white border-secondary p-4 shadow">
+        <h3 class="text-center mb-4 text-uppercase tracking-wider">Пополнить Вольный Фонд</h3>
+        
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="NewBook.Title" class="form-label fw-bold"></label>
+                <input asp-for="NewBook.Title" class="form-control bg-secondary text-white border-0" placeholder="Название труда" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NewBook.Author" class="form-label fw-bold"></label>
+                <input asp-for="NewBook.Author" class="form-control bg-secondary text-white border-0" placeholder="Имя автора или коллектива" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NewBook.Description" class="form-label fw-bold"></label>
+                <textarea asp-for="NewBook.Description" class="form-control bg-secondary text-white border-0" rows="4" placeholder="Краткая аннотация или манифест..."></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-bold">Обложка (Изображение):</label>
+                <input type="file" name="CoverFile" class="form-control bg-secondary text-white border-0" accept="image/*" />
+                <small class="text-muted d-block mt-1">Если файл не выбран, система автоматически назначит обложку-заглушку.</small>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="NewBook.ReadUrl" class="form-label fw-bold"></label>
+                <input asp-for="NewBook.ReadUrl" class="form-control bg-secondary text-white border-0" placeholder="https://github.com" />
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label fw-bold">Или загрузить файл напрямую (.pdf, .docx, .txt):</label>
+                <input type="file" name="BookFile" class="form-control bg-secondary text-white border-0" accept=".pdf,.docx,.doc,.txt" />
+            </div>
+
+            <button type="submit" class="btn btn-light w-100 fw-bold text-uppercase py-2">Внести книгу в граф базы</button>
+        </form>
+    </div>
+</div>

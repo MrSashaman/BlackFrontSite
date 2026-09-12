@@ -22,7 +22,6 @@ C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\scopedcss\bundle\BlackFront.styles.css
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\scopedcss\projectbundle\BlackFront.bundle.scp.css
-C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\6e8ba7ay0b-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\rett1p0pop-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\g7ipanrdjt-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\zw28r3liby-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -233,3 +232,4 @@ C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\bin\Debug
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\bin\Debug\net10.0\UglyToad.PdfPig.Tokens.dll
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\mthxll6r0v-{0}-n0bns9pxha-n0bns9pxha.gz
 C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\7khh7khmlg-{0}-itkk03vwdo-itkk03vwdo.gz
+C:\Users\Alexsandr Pimonov\Desktop\VSTC_Projects\BlackFront\BlackFront\obj\Debug\net10.0\compressed\6e8ba7ay0b-{0}-h7ccv2j10w-h7ccv2j10w.gz
